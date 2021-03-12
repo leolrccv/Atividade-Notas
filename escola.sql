@@ -43,7 +43,8 @@ create table CURSA(
 );
 
 go
-
+DROP TRIGGER TCadastro_Cursa
+GO
 CREATE TRIGGER TCadastro_Cursa
 ON CURSA
 FOR INSERT
@@ -160,7 +161,7 @@ FROM ALUNO A
 JOIN CURSA C ON C.ra = A.ra
 JOIN DISCIPLINA D ON D.id_disciplina = C.id_disciplina
 JOIN SEMESTRE S ON S.id_semestre = C.id_semestre
-WHERE C.media < 6 AND C.situacao = 'REPROVADO POR NOTA' AND S.ano = 2020 AND D.nome = 'Banco de Dados'
+WHERE C.media < 6 AND C.situacao = 'REPROVADO POR NOTA' AND S.ano = 2020
 
 -- (D) HISTORICO DE APROVADOS DA ESCOLA
 SELECT A.nome, D.nome, S.ano, S.descricao, C.frequencia, C.media, C.situacao
